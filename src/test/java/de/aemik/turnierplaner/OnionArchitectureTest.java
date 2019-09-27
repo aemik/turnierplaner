@@ -4,13 +4,14 @@ import static com.tngtech.archunit.library.Architectures.onionArchitecture;
 
 import org.junit.runner.RunWith;
 
+import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.junit.ArchUnitRunner;
 import com.tngtech.archunit.lang.ArchRule;
 
 @RunWith(ArchUnitRunner.class)
-@AnalyzeClasses(packages = "de.aemik.turnierplaner")
+@AnalyzeClasses(packages = "de.aemik.turnierplaner", importOptions = ImportOption.DoNotIncludeTests.class)
 public class OnionArchitectureTest {
 
     @ArchTest

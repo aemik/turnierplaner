@@ -1,5 +1,7 @@
 package de.aemik.turnierplaner.domain.service;
 
-public interface TurnierRepository {
+import de.aemik.turnierplaner.domain.model.Turnier;
+
+public interface TurnierRepository extends CrudRepository<Turnier, String> {
 
 }

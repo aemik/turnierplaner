@@ -2,24 +2,24 @@ package de.aemik.turnierplaner.adapter.persistence;
 
 import java.util.Optional;
 
-import de.aemik.turnierplaner.domain.model.Verein;
-import de.aemik.turnierplaner.domain.service.VereinRepository;
+import de.aemik.turnierplaner.domain.model.Turnier;
+import de.aemik.turnierplaner.domain.service.TurnierRepository;
 
-public class VereinRepositoryMemImpl extends RepositoryMemImpl<Verein, String> implements VereinRepository {
+public class TurnierRepositoryMemImpl extends RepositoryMemImpl<Turnier, String> implements TurnierRepository {
 
 	@Override
-	public <S extends Verein> S save(S entity) {
-		super.save(entity, entity.getNummer());
+	public <S extends Turnier> S save(S entity) {
+		super.save(entity, entity.getId());
 		return entity;
 	}
 
 	@Override
-	public <S extends Verein> Iterable<S> saveAll(Iterable<S> entities) {
+	public <S extends Turnier> Iterable<S> saveAll(Iterable<S> entities) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public Optional<Verein> findById(String id) {
+	public Optional<Turnier> findById(String id) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -29,12 +29,12 @@ public class VereinRepositoryMemImpl extends RepositoryMemImpl<Verein, String> i
 	}
 
 	@Override
-	public Iterable<Verein> findAll() {
+	public Iterable<Turnier> findAll() {
 		return super.getAll();
 	}
 
 	@Override
-	public Iterable<Verein> findAllById(Iterable<String> ids) {
+	public Iterable<Turnier> findAllById(Iterable<String> ids) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -49,12 +49,12 @@ public class VereinRepositoryMemImpl extends RepositoryMemImpl<Verein, String> i
 	}
 
 	@Override
-	public void delete(Verein entity) {
+	public void delete(Turnier entity) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Verein> entities) {
+	public void deleteAll(Iterable<? extends Turnier> entities) {
 		throw new UnsupportedOperationException();
 	}
 
