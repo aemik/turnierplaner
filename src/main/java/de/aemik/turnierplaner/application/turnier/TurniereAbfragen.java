@@ -6,15 +6,15 @@ import java.util.List;
 import de.aemik.turnierplaner.domain.model.Turnier;
 import de.aemik.turnierplaner.domain.service.TurnierRepository;
 
-public class AlleTurniereAbfragen {
+public class TurniereAbfragen {
 
 	private TurnierRepository turnierRepository;
 
-	public AlleTurniereAbfragen(TurnierRepository turnierRepository) {
+	public TurniereAbfragen(TurnierRepository turnierRepository) {
 		this.turnierRepository = turnierRepository;
 	}
 
-	public List<Turnier> get() {
+	public List<Turnier> getAll() {
 		List<Turnier> collection = new ArrayList<>();
         turnierRepository.findAll().forEach(collection::add);
         return collection;

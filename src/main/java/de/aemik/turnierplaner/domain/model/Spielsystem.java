@@ -1,9 +1,9 @@
 package de.aemik.turnierplaner.domain.model;
 
-import java.util.List;
+import java.util.Set;
 
 public interface Spielsystem {
 
-	List<Spielpaarung> erstelleSpielpaarungenFuer(List<Spieler> spieler);
+	Set<Spielpaarung> erstelleSpielpaarungenFuer(Set<Spieler> spieler);
 	
 }

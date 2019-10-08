@@ -1,7 +1,5 @@
 package de.aemik.turnierplaner.domain.model;
 
-import static org.junit.Assert.assertEquals;
-
 import java.time.LocalDate;
 
 import org.junit.Test;
@@ -10,17 +8,23 @@ public class TurnierTest {
 
 	@Test
 	public void test() {
-		Turnier turnier = Turnier.create(LocalDate.of(2019, 1, 1), Verein.of("03002", "SV Böblingen"), new JederGegenJedenSpielsystem());
-	
-		turnier.meldeAn(Spieler.create("Emanuel", "Egger", Jahrgang.of(1984) , Verein.of("03002", "SV Böblingen")));
-		turnier.meldeAn(Spieler.create("Arno", "Egger", Jahrgang.of(1989) , Verein.of("03002", "SV Böblingen")));
-		turnier.meldeAn(Spieler.create("Rouven", "Egger", Jahrgang.of(1986) , Verein.of("03002", "SV Böblingen")));
-		
+		Verein verein = Verein.of("03002", "SV Böblingen");
+
+		Turnier turnier = Turnier.create(LocalDate.now(), verein, new JederGegenJedenSpielsystem());
+
+		turnier.meldeAn(Spieler.of("Emanuel", "Egger", Jahrgang.of(1984), verein));
+		turnier.meldeAn(Spieler.of("Arno", "Egger", Jahrgang.of(1989), verein));
+		turnier.meldeAn(Spieler.of("Rouven", "Egger", Jahrgang.of(1986), verein));
+		turnier.meldeAn(Spieler.of("Werner", "Egger", Jahrgang.of(1959), verein));
+		turnier.meldeAn(Spieler.of("Renate", "Egger", Jahrgang.of(1954), verein));
+		turnier.meldeAn(Spieler.of("Josefine", "Egger", Jahrgang.of(2014), verein));
+		turnier.meldeAn(Spieler.of("Victoria", "Egger", Jahrgang.of(1987), verein));
+
 		turnier.spielpaarungenErstellen();
 		
-		assertEquals(6, turnier.getSpielpaarungen().size());
-		
-//		System.out.println(turnier);
+		turnier.getSpielpaarungen().forEach(s -> s.setGewinner(s.getSpieler1()));
+		turnier.getSpielpaarungen().forEach(s -> System.out.println(s.toReadableString()));
+
 	}
 
 }
