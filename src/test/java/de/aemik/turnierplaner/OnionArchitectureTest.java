@@ -14,10 +14,11 @@ import com.tngtech.archunit.lang.ArchRule;
 @AnalyzeClasses(packages = "de.aemik.turnierplaner", importOptions = ImportOption.DoNotIncludeTests.class)
 public class OnionArchitectureTest {
 
-    @ArchTest
+	@ArchTest
     static final ArchRule onion_architecture_is_respected = onionArchitecture()
             .domainModels("..domain.model..")
             .domainServices("..domain.service..")
             .applicationServices("..application..")
-    		.adapter("persistence", "..adapter.persistence..");
+            .adapter("persistence", "..adapter.persistence..")
+            .adapter("rest","..adapter.rest..");
 }

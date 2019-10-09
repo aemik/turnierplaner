@@ -2,9 +2,13 @@ package de.aemik.turnierplaner.adapter.persistence;
 
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
+
 import de.aemik.turnierplaner.domain.model.Spieler;
 import de.aemik.turnierplaner.domain.service.SpielerRepository;
 
+@ApplicationScoped
 public class SpielerRepositoryMemImpl extends RepositoryMemImpl<Spieler, String> implements SpielerRepository {
 
 	@Override
