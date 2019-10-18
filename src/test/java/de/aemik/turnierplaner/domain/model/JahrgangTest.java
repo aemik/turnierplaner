@@ -8,9 +8,9 @@ public class JahrgangTest {
 
 	@Test
 	public void test() {
-		assertEquals(2000, Jahrgang.of(2000).get());
-		assertEquals(1900, Jahrgang.of(1900).get());
-		assertEquals(2100, Jahrgang.of(2100).get());
+		assertEquals(Jahrgang.of(2000), Jahrgang.of(2000));
+		assertEquals(Jahrgang.of(1900), Jahrgang.of(1900));
+		assertEquals(Jahrgang.of(2100), Jahrgang.of(2100));
 		
 		assertEquals(Jahrgang.of(2000), Jahrgang.of(2000));
 		assertNotEquals(Jahrgang.of(2001), Jahrgang.of(2000));

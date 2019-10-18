@@ -9,7 +9,7 @@ public class VereinRepositoryMemImpl extends RepositoryMemImpl<Verein, String> i
 
 	@Override
 	public <S extends Verein> S save(S entity) {
-		super.save(entity, entity.getNummer());
+		super.save(entity, entity.getNummer().value());
 		return entity;
 	}
 

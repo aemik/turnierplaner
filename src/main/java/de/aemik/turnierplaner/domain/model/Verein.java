@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class Verein {
 
-	private String nummer;
+	private Vereinsnummer nummer;
 	private String name;
 
-	private Verein(String nummer, String name) {
+	private Verein(Vereinsnummer nummer, String name) {
 		Objects.requireNonNull(nummer, "nummer is required");
 		Objects.requireNonNull(name, "name is required");
 
@@ -15,11 +15,11 @@ public class Verein {
 		this.name = name;
 	}
 
-	public static Verein of(String nummer, String name) {
+	public static Verein of(Vereinsnummer nummer, String name) {
 		return new Verein(nummer, name);
 	}
 
-	public String getNummer() {
+	public Vereinsnummer getNummer() {
 		return nummer;
 	}
 

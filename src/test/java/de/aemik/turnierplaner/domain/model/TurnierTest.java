@@ -8,7 +8,7 @@ public class TurnierTest {
 
 	@Test
 	public void test() {
-		Verein verein = Verein.of("03002", "SV Böblingen");
+		Verein verein = Verein.of(Vereinsnummer.of("03002"), "SV Böblingen");
 
 		Turnier turnier = Turnier.create(LocalDate.now(), verein, new JederGegenJedenSpielsystem());
 
