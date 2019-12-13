@@ -2,6 +2,12 @@ package de.aemik.turnierplaner.domain;
 
 import java.util.Objects;
 
+
+/**
+ * A value object type for types that are based on one technical type.
+ *
+ * @param <T> type
+ */
 public abstract class BaseType<T> {
 	
 	private final T value;

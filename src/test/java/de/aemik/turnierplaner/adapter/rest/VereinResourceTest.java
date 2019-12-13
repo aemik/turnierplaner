@@ -9,13 +9,9 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class VereinResourceTest {
 
-    @Test
-    public void testHelloEndpoint() {
-        given()
-          .when().get("/verein")
-          .then()
-             .statusCode(200)
-             .body(is("[]"));
-    }
+	@Test
+	public void testVereinEndpoint() {
+		given().when().get("/verein").then().statusCode(200).body(is("[]"));
+	}
 
 }

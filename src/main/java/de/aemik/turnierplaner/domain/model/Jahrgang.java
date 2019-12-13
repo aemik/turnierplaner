@@ -2,6 +2,11 @@ package de.aemik.turnierplaner.domain.model;
 
 import de.aemik.turnierplaner.domain.BaseType;
 
+/**
+ * 
+ * @category value object
+ * 
+ */
 public class Jahrgang extends BaseType<Integer> {
 
 	private Jahrgang(int value) {

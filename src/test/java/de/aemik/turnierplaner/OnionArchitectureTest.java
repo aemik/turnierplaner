@@ -10,6 +10,12 @@ import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.junit.ArchUnitRunner;
 import com.tngtech.archunit.lang.ArchRule;
 
+/**
+ * test to be sure that ddd architecture is still valid
+ * 
+ * @author aemik
+ *
+ */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.aemik.turnierplaner", importOptions = ImportOption.DoNotIncludeTests.class)
 public class OnionArchitectureTest {

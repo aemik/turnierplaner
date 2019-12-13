@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * repository implementation for in memory data
+ * repository implementation for in-memory data
  * 
  * @author aemik
  *

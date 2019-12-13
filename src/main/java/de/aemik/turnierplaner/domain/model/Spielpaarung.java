@@ -4,6 +4,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * 
+ * @category domain object
+ * 
+ */
 public class Spielpaarung {
 
 	private String id;

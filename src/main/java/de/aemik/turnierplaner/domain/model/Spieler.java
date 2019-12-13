@@ -3,6 +3,11 @@ package de.aemik.turnierplaner.domain.model;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * 
+ * @category domain object
+ * 
+ */
 public class Spieler {
 
 	private String id;

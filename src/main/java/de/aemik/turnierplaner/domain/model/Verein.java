@@ -2,6 +2,11 @@ package de.aemik.turnierplaner.domain.model;
 
 import java.util.Objects;
 
+/**
+ * 
+ * @category domain object
+ * 
+ */
 public class Verein {
 
 	private Vereinsnummer nummer;
