@@ -2,7 +2,7 @@ package de.aemik.turnierplaner.domain.model;
 
 import java.time.LocalDate;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TurnierTest {
 
