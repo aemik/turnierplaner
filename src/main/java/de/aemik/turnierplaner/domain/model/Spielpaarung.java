@@ -4,31 +4,28 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
+import de.aemik.turnierplaner.domain.DomainObject;
+
 /**
  * 
  * @category domain object
  * 
  */
-public class Spielpaarung {
+public class Spielpaarung extends DomainObject {
 
-	private String id;
 	private Spieler spieler1;
 	private Spieler spieler2;
 	private Optional<Spieler> gewinner;
 
 	private Spielpaarung(String id, Spieler spieler1, Spieler spieler2) {
+		super(id);
+		
 		Objects.requireNonNull(spieler1, "spieler1 is required");
 		Objects.requireNonNull(spieler2, "spieler2 is required");
 
 		this.spieler1 = spieler1;
 		this.spieler2 = spieler2;
 		this.gewinner = Optional.empty();
-
-		if (id == null) {
-			this.id = UUID.randomUUID().toString();
-		} else {
-			this.id = id;
-		}
 	}
 
 	public static Spielpaarung create(Spieler spieler1, Spieler spieler2) {

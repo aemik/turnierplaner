@@ -1,13 +1,13 @@
 package de.aemik.turnierplaner.domain.model;
 
-import de.aemik.turnierplaner.domain.BaseType;
+import de.aemik.turnierplaner.domain.ValueObject;
 
 /**
  * 
  * @category value object
  * 
  */
-public class Vereinsnummer extends BaseType<String> {
+public class Vereinsnummer extends ValueObject<String> {
 
 	private static final int LENGTH = 5;
 

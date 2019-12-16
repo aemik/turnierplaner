@@ -3,20 +3,23 @@ package de.aemik.turnierplaner.domain.model;
 import java.util.Objects;
 import java.util.UUID;
 
+import de.aemik.turnierplaner.domain.DomainObject;
+
 /**
  * 
  * @category domain object
  * 
  */
-public class Spieler {
+public class Spieler extends DomainObject {
 
-	private String id;
 	private String vorname;
 	private String nachname;
 	private Jahrgang jahrgang;
 	private Verein verein;
 
 	private Spieler(String id, String vorname, String nachname, Jahrgang jahrgang, Verein verein) {
+		super(id);
+		
 		Objects.requireNonNull(vorname, "vorname is required");
 		Objects.requireNonNull(nachname, "nachname is required");
 		Objects.requireNonNull(jahrgang, "jahrgang is required");
@@ -26,12 +29,6 @@ public class Spieler {
 		this.nachname = nachname;
 		this.verein = verein;
 		this.jahrgang = jahrgang;
-
-		if (id == null) {
-			this.id = UUID.randomUUID().toString();
-		} else {
-			this.id = id;
-		}
 	}
 
 	public static Spieler of(String vorname, String nachname, Jahrgang jahrgang, Verein verein) {
@@ -40,10 +37,6 @@ public class Spieler {
 
 	public static Spieler restore(String id, String vorname, String nachname, Jahrgang jahrgang, Verein verein) {
 		return new Spieler(id, vorname, nachname, jahrgang, verein);
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	public String getFullname() {

@@ -6,14 +6,15 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
+import de.aemik.turnierplaner.domain.DomainObject;
+
 /**
  * 
  * @category domain object
  * 
  */
-public class Turnier {
+public class Turnier extends DomainObject {
 
-	private String id;
 	private LocalDate datum;
 	private Verein veranstalter;
 	private Spielsystem spielsystem;
@@ -23,6 +24,8 @@ public class Turnier {
 
 	private Turnier(String id, LocalDate datum, Verein veranstalter, Spielsystem spielsystem, Set<Spieler> gemeldeteSpieler,
 			Set<Spielpaarung> spielpaarungen) {
+		super(id);
+		
 		Objects.requireNonNull(datum, "datum is required");
 		Objects.requireNonNull(veranstalter, "veranstalter is required");
 		Objects.requireNonNull(spielsystem, "spielsystem is required");

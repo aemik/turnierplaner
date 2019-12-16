@@ -8,11 +8,11 @@ import java.util.Objects;
  *
  * @param <T> type
  */
-public abstract class BaseType<T> {
+public abstract class ValueObject<T> {
 	
 	private final T value;
 
-	protected BaseType(T value) {
+	protected ValueObject(T value) {
 		Objects.requireNonNull(value, "value is required");
 		this.value = value;
 	}
@@ -40,7 +40,7 @@ public abstract class BaseType<T> {
 		if (getClass() != obj.getClass())
 			return false;
 		@SuppressWarnings("rawtypes")
-		BaseType other = (BaseType) obj;
+		ValueObject other = (ValueObject) obj;
 		if (value == null) {
 			if (other.value != null)
 				return false;
