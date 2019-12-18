@@ -3,7 +3,6 @@ package de.aemik.turnierplaner.adapter.persistence;
 import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
 
 import de.aemik.turnierplaner.domain.model.Turnier;
 import de.aemik.turnierplaner.domain.service.TurnierRepository;
@@ -24,12 +23,12 @@ public class TurnierRepositoryMemImpl extends RepositoryMemImpl<Turnier, String>
 
 	@Override
 	public Optional<Turnier> findById(String id) {
-		throw new UnsupportedOperationException();
+		return Optional.ofNullable(super.get(id));
 	}
 
 	@Override
 	public boolean existsById(String id) {
-		throw new UnsupportedOperationException();
+		return findById(id).isPresent();
 	}
 
 	@Override
@@ -44,27 +43,29 @@ public class TurnierRepositoryMemImpl extends RepositoryMemImpl<Turnier, String>
 
 	@Override
 	public long count() {
-		throw new UnsupportedOperationException();
+		return super.getAll().size();
 	}
 
 	@Override
 	public void deleteById(String id) {
-		throw new UnsupportedOperationException();
+		remove(id);
 	}
 
 	@Override
 	public void delete(Turnier entity) {
-		throw new UnsupportedOperationException();
+		remove(entity.getId());
 	}
 
 	@Override
 	public void deleteAll(Iterable<? extends Turnier> entities) {
-		throw new UnsupportedOperationException();
+		for (Turnier entity : entities) {
+			delete(entity);
+		}
 	}
 
 	@Override
 	public void deleteAll() {
-		throw new UnsupportedOperationException();
+		clear();
 	}
 
 }

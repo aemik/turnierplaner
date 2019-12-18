@@ -2,8 +2,9 @@ package de.aemik.turnierplaner.application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -12,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import de.aemik.turnierplaner.domain.model.Turnier;
 import de.aemik.turnierplaner.domain.service.TurnierRepository;
 
-@RequestScoped
+@Dependent
 public class TurnierService {
 
 	private final static Logger logger = LoggerFactory.getLogger(TurnierService.class);
@@ -30,9 +31,19 @@ public class TurnierService {
 		return collection;
 	}
 
-	public void create(Turnier turnier) {
+	public void save(Turnier turnier) {
 		logger.info("save {}", turnier);
 		turnierRepository.save(turnier);
 	}
+	
+	public Optional<Turnier> get(String id) {
+		logger.info("get turnier by id={}", id);
+		return turnierRepository.findById(id);
+	}
+	
+	public void deleteAll() {
+		turnierRepository.deleteAll();
+	}
+	
 
 }

@@ -3,7 +3,7 @@ package de.aemik.turnierplaner.application;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import de.aemik.turnierplaner.domain.model.Spieler;
 import de.aemik.turnierplaner.domain.service.SpielerRepository;
 
-@RequestScoped
+@Dependent
 public class SpielerService {
 
 	private static final Logger logger = LoggerFactory.getLogger(SpielerService.class);

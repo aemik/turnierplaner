@@ -1,4 +1,4 @@
-package de.aemik.turnierplaner.adapter.rest;
+package de.aemik.turnierplaner.adapter.rest.model;
 
 import de.aemik.turnierplaner.domain.model.Verein;
 

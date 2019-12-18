@@ -12,6 +12,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import de.aemik.turnierplaner.adapter.ApplicationSetup;
+import de.aemik.turnierplaner.adapter.rest.model.VereinJson;
 import de.aemik.turnierplaner.application.VereinService;
 import de.aemik.turnierplaner.domain.model.Verein;
 import de.aemik.turnierplaner.domain.model.Vereinsnummer;

@@ -25,4 +25,17 @@ abstract class RepositoryMemImpl<T, ID> {
 	Collection<T> getAll() {
 		return memoryMap.values();
 	}
+	
+	T get(ID id) {
+		return memoryMap.get(id);
+	}
+
+	void remove(ID id) {
+		memoryMap.remove(id);
+	}
+
+	void clear() {
+		memoryMap.clear();
+	}
+	
 }

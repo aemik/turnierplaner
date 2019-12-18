@@ -28,7 +28,7 @@ public class Verein extends DomainObject {
 		return new Verein(null, nummer, name);
 	}
 
-	public static Verein of(String id, Vereinsnummer nummer, String name) {
+	public static Verein restore(String id, Vereinsnummer nummer, String name) {
 		return new Verein(id, nummer, name);
 	}
 	
