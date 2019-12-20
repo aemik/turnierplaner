@@ -1,5 +1,8 @@
 package de.aemik.turnierplaner.domain.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
@@ -23,8 +26,16 @@ public class TurnierTest {
 		turnier.spielpaarungenErstellen();
 		
 		turnier.getSpielpaarungen().forEach(s -> s.setGewinner(s.getSpieler1()));
-		turnier.getSpielpaarungen().forEach(s -> System.out.println(s.toReadableString()));
 
+		for (Spielpaarung spielpaarung : turnier.getSpielpaarungen()) {
+			assertTrue(turnier.getSpielpaarungById(spielpaarung.getId()).isPresent());
+		}
+		
+		assertEquals(7, turnier.getSpielerGewinne().size());
+		
+		
+//		System.out.println(turnier.getSpielerGewinne());
+//		turnier.getSpielpaarungen().forEach(s -> System.out.println(s.toReadableString()));
 	}
 
 }

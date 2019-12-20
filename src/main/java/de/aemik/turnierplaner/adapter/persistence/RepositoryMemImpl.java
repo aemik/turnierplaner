@@ -17,9 +17,7 @@ abstract class RepositoryMemImpl<T, ID> {
 	private Map<ID, T> memoryMap = new HashMap<>();
 
 	void save(T entity, ID id) {
-		if (memoryMap.putIfAbsent(id, entity) != null) {
-			throw new IllegalArgumentException(entity + " still exists!");
-		}
+		memoryMap.put(id, entity);
 	}
 
 	Collection<T> getAll() {

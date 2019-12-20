@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import de.aemik.turnierplaner.domain.model.JederGegenJedenSpielsystem;
 import de.aemik.turnierplaner.domain.model.Turnier;

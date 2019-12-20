@@ -1,10 +1,12 @@
 package de.aemik.turnierplaner.domain.model;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;
 
 import de.aemik.turnierplaner.domain.DomainObject;
 
@@ -45,12 +47,6 @@ public class Turnier extends DomainObject {
 		} else {
 			this.spielpaarungen = new HashSet<>();
 		}
-
-		if (id == null) {
-			this.id = UUID.randomUUID().toString();
-		} else {
-			this.id = id;
-		}
 	}
 
 	public static Turnier create(LocalDate datum, Verein veranstalter, Spielsystem spielsystem) {
@@ -74,6 +70,22 @@ public class Turnier extends DomainObject {
 		this.spielpaarungen.clear();
 		this.spielpaarungen = spielsystem.erstelleSpielpaarungenFuer(gemeldeteSpieler);
 	}
+	
+	public Map<Spieler, Integer> getSpielerGewinne() {
+		Map<Spieler, Integer> spielerGewinneMap = new HashMap<>();
+		for (Spieler spieler : gemeldeteSpieler) {
+			spielerGewinneMap.put(spieler, 0);
+		}
+		for (Spielpaarung spielpaarung : spielpaarungen) {
+			Optional<Spieler> gewinnerOptional = spielpaarung.getGewinner();
+			if (gewinnerOptional.isPresent()) {
+				int siege = spielerGewinneMap.get(gewinnerOptional.get()).intValue();
+				siege = siege + 1;
+				spielerGewinneMap.put(gewinnerOptional.get(), siege);
+			}
+		}
+		return spielerGewinneMap;
+	}
 
 	public String getId() {
 		return id;
@@ -93,6 +105,14 @@ public class Turnier extends DomainObject {
 
 	public Set<Spielpaarung> getSpielpaarungen() {
 		return spielpaarungen;
+	}
+	
+	public Optional<Spielpaarung> getSpielpaarungById(String id) {
+		return spielpaarungen.stream().filter(s -> s.getId().equals(id)).findFirst();
+	}
+	
+	public Optional<Spieler> getGemeldetenSpielerById(String id) {
+		return gemeldeteSpieler.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 	@Override

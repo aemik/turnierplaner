@@ -1,4 +1,4 @@
-package de.aemik.turnierplaner.adapter.rest;
+package de.aemik.turnierplaner.adapter.rest.resource;
 
 import java.util.ArrayList;
 import java.util.List;

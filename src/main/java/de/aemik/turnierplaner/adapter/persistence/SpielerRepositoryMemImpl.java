@@ -1,9 +1,10 @@
 package de.aemik.turnierplaner.adapter.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
 
 import de.aemik.turnierplaner.domain.model.Spieler;
 import de.aemik.turnierplaner.domain.service.SpielerRepository;
@@ -19,17 +20,20 @@ public class SpielerRepositoryMemImpl extends RepositoryMemImpl<Spieler, String>
 
 	@Override
 	public <S extends Spieler> Iterable<S> saveAll(Iterable<S> entities) {
-		throw new UnsupportedOperationException();
+		for (S entity : entities) {
+			super.save(entity, entity.getId());
+		}
+		return entities;
 	}
 
 	@Override
 	public Optional<Spieler> findById(String id) {
-		throw new UnsupportedOperationException();
+		return Optional.ofNullable(super.get(id));
 	}
 
 	@Override
 	public boolean existsById(String id) {
-		throw new UnsupportedOperationException();
+		return (super.get(id) != null);
 	}
 
 	@Override
@@ -39,32 +43,41 @@ public class SpielerRepositoryMemImpl extends RepositoryMemImpl<Spieler, String>
 
 	@Override
 	public Iterable<Spieler> findAllById(Iterable<String> ids) {
-		throw new UnsupportedOperationException();
+		List<Spieler> spielerList = new ArrayList<>();
+		for (String id : ids) {
+			Spieler spieler = super.get(id);
+			if (spieler != null) {
+				spielerList.add(super.get(id));	
+			}
+		}
+		return spielerList;
 	}
 
 	@Override
 	public long count() {
-		throw new UnsupportedOperationException();
+		return super.getAll().size();
 	}
 
 	@Override
 	public void deleteById(String id) {
-		throw new UnsupportedOperationException();
+		super.remove(id);
 	}
 
 	@Override
 	public void delete(Spieler entity) {
-		throw new UnsupportedOperationException();
+		super.remove(entity.getId());
 	}
 
 	@Override
 	public void deleteAll(Iterable<? extends Spieler> entities) {
-		throw new UnsupportedOperationException();
+		for (Spieler entity : entities) {
+			super.remove(entity.getId());
+		}
 	}
 
 	@Override
 	public void deleteAll() {
-		throw new UnsupportedOperationException();
+		super.clear();
 	}
 
 }
